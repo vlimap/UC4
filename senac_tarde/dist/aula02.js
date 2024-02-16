@@ -5,12 +5,19 @@ formulario.addEventListener('submit', (event) => {
     event.preventDefault();
     const nome = document.getElementById('nome').value;
     const telefone = document.getElementById('telefone').value;
-    const dataNascimento = document.getElementById('nasc').value;
+    const dataNascimento = document.getElementById('dataNascimento').value;
     const cpf = document.getElementById('cpf').value;
     const email = document.getElementById('email').value;
-    console.log(nome);
-    console.log(telefone);
-    console.log(dataNascimento);
-    console.log(cpf);
-    console.log(email);
+    const dados = `
+    Dados coletados:<br>
+    Nome: ${nome}<br>
+    CPF: ${cpf}<br>
+    Email: ${email}<br>
+    Data de nascimento: ${dataNascimento}<br>
+    Telefone: ${telefone}
+    `;
+    const exibir = document.getElementById('resposta');
+    if (exibir) {
+        exibir.innerHTML = dados;
+    }
 });

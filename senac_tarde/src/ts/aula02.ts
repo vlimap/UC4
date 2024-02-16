@@ -1,8 +1,6 @@
 // adicionando a variavel formulario ao id dele
 const formulario = document.getElementById('formulario') as HTMLElement
 
-
-
 formulario.addEventListener('submit', (event) => {
     event.preventDefault()
 
@@ -10,15 +8,22 @@ formulario.addEventListener('submit', (event) => {
 
     const telefone = (document.getElementById('telefone') as HTMLInputElement).value;
 
-    const dataNascimento = (document.getElementById('nasc') as HTMLInputElement).value;
+    const dataNascimento = (document.getElementById('dataNascimento') as HTMLInputElement).value;
 
     const cpf = (document.getElementById('cpf') as HTMLInputElement).value;
 
     const email = (document.getElementById('email') as HTMLInputElement).value;
 
-    console.log(nome)
-    console.log(telefone)
-    console.log(dataNascimento)
-    console.log(cpf)
-    console.log(email)
+    const dados = `
+    Dados coletados:<br>
+    Nome: ${nome}<br>
+    CPF: ${cpf}<br>
+    Email: ${email}<br>
+    Data de nascimento: ${dataNascimento}<br>
+    Telefone: ${telefone}
+    `
+    const exibir = document.getElementById('resposta');
+    if(exibir){
+        exibir.innerHTML = dados;
+    }
 });
