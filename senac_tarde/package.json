@@ -1,7 +1,7 @@
 {
   "name": "typescript",
   "version": "1.0.0",
-  "description": "",
+  "description": "- baixar powershell loja de aplicativos win store\r  - criar uma pasta na area de trabalho\r  - baixar o typescript global: npm install -g typescript\r  - verificar caminho do path do typescript global: npm list -g typestript\r  - copiar o caminho do path e pesquisar por ambiente variaveis para sua conta e alterar o path com o link copiado e em seguida ok ok\r   - npm init -y para inicializar o typescript\r   - em seguida, tsc --init para configurar o typescript, se tudo ocorreu bem, aparecerá um arquivo com tsconfig.json na cor azul.\r   - Criar os diretorios:\r \t- dist - mkdir dist\r \t- src - mkdir src\r   - em tsconfig.json:\r \ttarget: ESnext\r \trootDir: \"./src\"\r \toutDir: \"./dist\"\r   - Para testar criar um arquivo com a extensão .ts \r   - Para iniciar o interpretador em modo de assistir usar\r \ttsc --watch",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
