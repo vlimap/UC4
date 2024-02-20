@@ -18,12 +18,19 @@ class Funcionario {
         this.data_nascimento = data_nascimento;
         this.endereco = endereco
     }
-
+    mostrarDados() {
+        console.log('Dados do funcionario:')
+        console.log(`Nome: ${this.nome}`)
+        console.log(`E-mail: ${this.email}`)
+        console.log(`Telefone: ${this.telefone}`)
+        console.log(`Data de nascimento: ${this.data_nascimento.toLocaleString('pt-BR')}`)
+        console.log(`Endereço: ${this.endereco}`)
+        console.log(`Cargo: ${this.cargo}`)
+    }
 }
 // instanciando a classe e criando o objeto funcionario1
-const funcionario1 = new Funcionario(['Rua Senac','13','Senac'],'Valtemir','val@gmail.com','12345678','professor',new Date('2023-2-25'))
-console.log(funcionario1)
-
+const funcionario1 = new Funcionario(['Rua Senac', '13', 'Senac'], 'Valtemir', 'val@gmail.com', '12345678', 'professor', new Date('2023-2-24'))
+console.log(funcionario1.mostrarDados())
 
 class Paciente {
     nome: string;
@@ -34,15 +41,15 @@ class Paciente {
     endereco: string;
     obs_alergias?: string;
     constructor(nome: string, cpf: string, rg: string, telefone: string, email: string, endereco: string, obs_alergias?: string) {
-        this.nome = nome,
-            this.cpf = cpf,
-            this.email = email,
-            this.endereco = endereco,
-            this.rg = rg,
-            this.telefone = telefone
-        this.obs_alergias = obs_alergias
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.endereco = endereco;
+        this.rg = rg;
+        this.telefone = telefone;
+        this.obs_alergias = obs_alergias;
     }
-   
+
 }
 
 const paciente1 = new Paciente('Valtemir', '1234445555', '0987654321', '84 9 9999-999', 'val@gmail', 'Rua tal de tal', 'dipirona')
@@ -57,11 +64,11 @@ class Consulta {
     medico: Funcionario;
     paciente: Paciente
     constructor(localizacao: string, data: Date, convenio: boolean, medico: Funcionario, paciente: Paciente) {
-        this.data = data,
-            this.local = localizacao,
-            this.medico = medico,
-            this.convenio = convenio,
-            this.paciente = paciente
+        this.data = data;
+        this.local = localizacao;
+        this.medico = medico;
+        this.convenio = convenio;
+        this.paciente = paciente;
     }
 }
 const consulta1 = new Consulta('Mosquito', new Date('2024-09-23T12:12:12'), true, funcionario1, paciente1)
