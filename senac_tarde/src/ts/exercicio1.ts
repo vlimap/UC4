@@ -35,9 +35,12 @@ class Paciente{
         this.telefone = telefone
         this.obs_alergias = obs_alergias
     }
+    listarDados(){
+    console.log(`Seu nome é ${this.cpf}`)
+    }
 }
 
-const paciente1 = new Paciente('Valtemir','1234567890','0987654321','84 9 9999-999','val@gmail','Rua tal de tal')
+const paciente1 = new Paciente('Valtemir','1234445555','0987654321','84 9 9999-999','val@gmail','Rua tal de tal','dipirona')
 
 
 // Cadastro de Consultas:
