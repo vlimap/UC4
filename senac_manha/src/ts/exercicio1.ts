@@ -69,11 +69,11 @@ class Consulta {
     }
     mostrarDados() {
         console.log(`Funcionario: 
-            1 - ${funcionario1.nome} \n
-            2 - ${funcionario1.nome} \n
-            3 - ${funcionario1.nome} \n
-            4 - ${funcionario1.nome} \n
-            5 - ${funcionario1.nome} \n
+1 - ${funcionario1.nome} \n
+2 - ${funcionario1.nome} \n
+3 - ${funcionario1.nome} \n
+4 - ${funcionario1.nome} \n
+5 - ${funcionario1.nome} \n
             `)
     }
 }
@@ -81,7 +81,7 @@ class Consulta {
 const consulta1 = new Consulta('Mosquito', new Date('2024-09-23T12:12:12'), true, funcionario1, paciente1)
 const consulta2 = new Consulta('Japao', new Date('2024-09-23T12:12:12'), false, funcionario1, paciente1)
 
-console.log(consulta1)
+console.log(consulta1.mostrarDados())
 console.log(consulta2)
 
 

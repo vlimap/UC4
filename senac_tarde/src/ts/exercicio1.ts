@@ -1,59 +1,66 @@
 // Cadastro de Funcionários:
 // • Detalhes pessoais e profissionais dos colaboradores.
 // criando a classe Funcionario
-class Funcionario {
-    // atributos
+class Pessoa {
     nome: string;
     endereco: string[];
     email: string;
     telefone: string;
-    cargo: string;
     data_nascimento: Date;
-    // Método construtor da classe
-    constructor(endereco: string[], nome: string, email: string, telefone: string, cargo: string, data_nascimento: Date) {
-        this.cargo = cargo;
+    rg: string;
+    constructor(nome: string, endereco: string[], email: string, telefone: string, data_nascimento: Date, rg: string) {
+        this.nome = nome;
+        this.endereco = endereco;
         this.email = email;
         this.telefone = telefone;
-        this.nome = nome;
         this.data_nascimento = data_nascimento;
-        this.endereco = endereco
+        this.rg = rg;
     }
     mostrarDados() {
         console.log('Dados do funcionario:')
-        console.log(`Nome: ${this.nome}`)
+        console.log(`Nome completo do usuario: ${this.nome}`)
         console.log(`E-mail: ${this.email}`)
         console.log(`Telefone: ${this.telefone}`)
-        console.log(`Data de nascimento: ${this.data_nascimento.getTime()}`)
+        console.log(`Data de nascimento: ${this.data_nascimento.toLocaleDateString('pt-BR')}`)
         console.log(`Endereço: ${this.endereco}`)
-        console.log(`Cargo: ${this.cargo}`)
+        console.log(`Endereço: ${this.rg}`)
+    }
+
+}
+
+class Funcionario extends Pessoa {
+    // atributos proprios da classe funcionario
+    cargo: string;
+    matricula: string;
+    // Método construtor da classe
+    constructor(matricula: string, endereco: string[], colaborador: string, email: string, telefone: string, cargo: string, data_nascimento: Date, rg: string) {
+        super(colaborador, endereco, email, telefone, data_nascimento, rg)
+        this.cargo = cargo;
+        this.matricula = matricula;
+    }
+    mostrarDados() {
+        super.mostrarDados();
+        console.log(`Cargo: ${this.cargo}`);
+        console.log(`Matricula: ${this.matricula}`);
     }
 }
 // instanciando a classe e criando o objeto funcionario1
-const funcionario1 = new Funcionario(['Rua Senac', '13', 'Senac'], 'Fulano', 'val@gmail.com', '12345678', 'professor', new Date('12:15:15'))
-console.log(funcionario1.mostrarDados())
+const funcionario1 = new Funcionario('123456', ['Rua Senac', '13', 'Bairro Senac', 'Cidade Senac'], 'Colaborador', 'val@gmail.com', '12345678', 'professor', new Date('2024-2-25'), '12345')
 
-class Paciente {
-    nome: string;
+class Paciente extends Pessoa {
     cpf: string;
-    rg: string;
-    telefone: string;
-    email: string;
-    endereco: string;
     obs_alergias?: string;
-    constructor(nome: string, cpf: string, rg: string, telefone: string, email: string, endereco: string, obs_alergias?: string) {
-        this.nome = nome;
+    constructor(nome: string, cpf: string, rg: string, telefone: string, email: string, endereco: string[], data_nascimento: Date, obs_alergias?: string) {
+        super(nome, endereco, email, telefone, data_nascimento, rg)
         this.cpf = cpf;
-        this.email = email;
-        this.endereco = endereco;
-        this.rg = rg;
-        this.telefone = telefone;
         this.obs_alergias = obs_alergias;
     }
 
 }
 
-const paciente1 = new Paciente('Fulano', '1234445555', '0987654321', '84 9 9999-999', 'val@gmail', 'Rua tal de tal', 'dipirona')
-
+const paciente1 = new Paciente('Paciente', '12345', '12345', '123456789', 'fulano@email.com', ['Rua tal', '25', 'Bairro tal'], new Date("2023-3-25"))
+paciente1.mostrarDados()
+funcionario1.mostrarDados()
 
 // Cadastro de Consultas:
 //• Dados específicos sobre cada consulta, incluindo informações importantes.
@@ -70,8 +77,8 @@ class Consulta {
         this.convenio = convenio;
         this.paciente = paciente;
     }
+
 }
-const consulta1 = new Consulta('Mosquito', new Date('2024-09-23T12:12:12'), true, funcionario1, paciente1)
+const consulta1 = new Consulta('Mosquito', new Date("2024-09-23"), true, funcionario1, paciente1)
 
-console.log(consulta1)
-
+paciente1.mostrarDados()
