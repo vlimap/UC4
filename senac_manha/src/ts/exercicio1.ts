@@ -1,7 +1,4 @@
 
-
-
-
 // Cadastro de Funcionários:
 // • Detalhes pessoais e profissionais dos colaboradores.
 class Funcionario {
@@ -19,7 +16,7 @@ class Funcionario {
     }
 }
 
-const funcionario1 = new Funcionario('Valtemir', 'val@gmail.com', "1234567890", 'medico', new Date("2023-2-23"))
+const funcionario1 = new Funcionario('Fulano', 'fulano@gmail.com', "1234567890", 'medico', new Date("2023-2-23"))
 console.log(funcionario1)
 class Paciente {
     nome: string;
@@ -40,7 +37,7 @@ class Paciente {
     }
 }
 
-const paciente1 = new Paciente('Valtemir', '1234567890', '0987654321', '84 9 9999-999', 'val@gmail', 'Rua tal de tal')
+const paciente1 = new Paciente('Fulano', '1234567890', '0987654321', '84 9 9999-999', 'val@gmail', 'Rua tal de tal')
 
 
 // Cadastro de Consultas:
