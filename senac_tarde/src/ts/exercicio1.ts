@@ -23,13 +23,13 @@ class Funcionario {
         console.log(`Nome: ${this.nome}`)
         console.log(`E-mail: ${this.email}`)
         console.log(`Telefone: ${this.telefone}`)
-        console.log(`Data de nascimento: ${this.data_nascimento.toLocaleString('pt-BR')}`)
+        console.log(`Data de nascimento: ${this.data_nascimento.getTime()}`)
         console.log(`Endereço: ${this.endereco}`)
         console.log(`Cargo: ${this.cargo}`)
     }
 }
 // instanciando a classe e criando o objeto funcionario1
-const funcionario1 = new Funcionario(['Rua Senac', '13', 'Senac'], 'Fulano', 'val@gmail.com', '12345678', 'professor', new Date('2023-2-24'))
+const funcionario1 = new Funcionario(['Rua Senac', '13', 'Senac'], 'Fulano', 'val@gmail.com', '12345678', 'professor', new Date('12:15:15'))
 console.log(funcionario1.mostrarDados())
 
 class Paciente {
