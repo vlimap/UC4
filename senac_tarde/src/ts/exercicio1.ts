@@ -29,7 +29,7 @@ class Funcionario {
     }
 }
 // instanciando a classe e criando o objeto funcionario1
-const funcionario1 = new Funcionario(['Rua Senac', '13', 'Senac'], 'Valtemir', 'val@gmail.com', '12345678', 'professor', new Date('2023-2-24'))
+const funcionario1 = new Funcionario(['Rua Senac', '13', 'Senac'], 'Fulano', 'val@gmail.com', '12345678', 'professor', new Date('2023-2-24'))
 console.log(funcionario1.mostrarDados())
 
 class Paciente {
@@ -52,7 +52,7 @@ class Paciente {
 
 }
 
-const paciente1 = new Paciente('Valtemir', '1234445555', '0987654321', '84 9 9999-999', 'val@gmail', 'Rua tal de tal', 'dipirona')
+const paciente1 = new Paciente('Fulano', '1234445555', '0987654321', '84 9 9999-999', 'val@gmail', 'Rua tal de tal', 'dipirona')
 
 
 // Cadastro de Consultas:

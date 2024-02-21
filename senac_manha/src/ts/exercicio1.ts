@@ -1,3 +1,7 @@
+
+
+
+
 // Cadastro de Funcionários:
 // • Detalhes pessoais e profissionais dos colaboradores.
 class Funcionario {
@@ -46,7 +50,7 @@ class Consulta {
     data: Date;
     convenio: boolean;
     medico: Funcionario;
-    paciente: Paciente
+    paciente: Paciente;
     constructor(localizacao: string, data: Date, convenio: boolean, medico: Funcionario, paciente: Paciente) {
         this.data = data;
         this.local = localizacao;
