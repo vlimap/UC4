@@ -1,23 +1,15 @@
 // Cadastro de Funcionários:
 // • Detalhes pessoais e profissionais dos colaboradores.
 class Pessoa {
-    nome: string;
-    email: string;
-    telefone: string;
-    data_nascimento: Date;
-    endereco: string[];
-    cpf: string;
-    genero?: string;
-    constructor(nome: string, email: string, telefone: string, data_nascimento: Date, endereco: string[], cpf: string, genero?: string) {
-        this.nome = nome;
-        this.genero = genero;
-        this.telefone = telefone;
-        this.endereco = endereco;
-        this.email = email;
-        this.cpf = cpf;
-        this.data_nascimento = data_nascimento;
-
-    }
+    constructor(
+        public nome: string,
+        public email: string,
+        public telefone: string,
+        public data_nascimento: Date,
+        public endereco: string[],
+        public cpf: string,
+        public genero?: string
+    ) {}
     mostrarDados() {
         console.log(`Nome do usuario___: ${this.nome}`)
         console.log(`E-mail____________: ${this.email}`)
