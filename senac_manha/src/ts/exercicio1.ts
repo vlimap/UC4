@@ -1,18 +1,45 @@
 // Cadastro de Funcionários:
 // • Detalhes pessoais e profissionais dos colaboradores.
-class Funcionario {
+class Pessoa {
     nome: string;
     email: string;
     telefone: string;
-    cargo: string;
     data_nascimento: Date;
-    // Método construtor da classe Funcionario
-    constructor(nome: string, email: string, telefone: string, cargo: string, data_nascimento: Date) {
-        this.cargo = cargo;
-        this.email = email;
-        this.telefone = telefone;
+    endereco: string[];
+    cpf: string;
+    genero?: string;
+    constructor(nome: string, email: string, telefone: string, data_nascimento: Date, endereco: string[], cpf: string, genero?: string) {
         this.nome = nome;
+        this.genero = genero;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.email = email;
+        this.cpf = cpf;
         this.data_nascimento = data_nascimento;
+    }
+    mostrarDados() {
+        console.log('--------------Dados do funcionario-------------')
+        console.log(`Nome do usuario___: ${this.nome}`)
+        console.log(`E-mail____________: ${this.email}`)
+        console.log(`Telefone__________: ${this.telefone}`)
+        console.log(`Data de nascimento: ${this.data_nascimento.toLocaleDateString('pt-BR')}`)
+        console.log(`CPF_______________: ${this.cpf}`)
+        console.log(`Telefone__________: ${this.telefone}`)
+        if (this.genero) {
+            console.log(`Genero____________: ${this.genero}`)
+        }
+        console.log('------------------------------------------------')
+    }
+}
+
+class Funcionario extends Pessoa {
+    matricula: string;
+    cargo: string;
+    // Método construtor da classe Funcionario
+    constructor(endereco: string[], cpf: string,nome: string, email: string, telefone: string, cargo: string, data_nascimento: Date, matricula: string) {
+        super(nome,email,telefone,data_nascimento,endereco,cpf);
+        this.cargo = cargo;
+        this.matricula = matricula;
     }
     mostrarDados() {
         console.log('--------------Dados do funcionario-------------')
@@ -30,22 +57,10 @@ const funcionario1 = new Funcionario('Fulano', 'fulano@gmail.com', "1234567890",
 console.log(funcionario1.mostrarDados())
 
 
-class Paciente {
-    nome: string;
-    cpf: string;
-    rg: string;
-    telefone: string;
-    email: string;
-    endereco: string;
+class Paciente extends Pessoa {
     obs_alergias?: string;
-    constructor(nome: string, cpf: string, rg: string, telefone: string, email: string, endereco: string, obs_alergias?: string) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.email = email;
-        this.endereco = endereco;
-        this.rg = rg;
-        this.telefone = telefone;
-        this.obs_alergias = obs_alergias;
+    constructor(nome: string, cpf: string, telefone: string, email: string, endereco: string, obs_alergias?: string) {
+       
     }
 }
 
