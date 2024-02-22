@@ -16,9 +16,9 @@ class Pessoa {
         this.email = email;
         this.cpf = cpf;
         this.data_nascimento = data_nascimento;
+
     }
     mostrarDados() {
-        console.log('--------------Dados do funcionario-------------')
         console.log(`Nome do usuario___: ${this.nome}`)
         console.log(`E-mail____________: ${this.email}`)
         console.log(`Telefone__________: ${this.telefone}`)
@@ -28,7 +28,6 @@ class Pessoa {
         if (this.genero) {
             console.log(`Genero____________: ${this.genero}`)
         }
-        console.log('------------------------------------------------')
     }
 }
 
@@ -36,31 +35,30 @@ class Funcionario extends Pessoa {
     matricula: string;
     cargo: string;
     // Método construtor da classe Funcionario
-    constructor(endereco: string[], cpf: string,nome: string, email: string, telefone: string, cargo: string, data_nascimento: Date, matricula: string) {
-        super(nome,email,telefone,data_nascimento,endereco,cpf);
+    constructor(endereco: string[], cpf: string, nome: string, email: string, telefone: string, cargo: string, data_nascimento: Date, matricula: string) {
+        super(nome, email, telefone, data_nascimento, endereco, cpf);
         this.cargo = cargo;
         this.matricula = matricula;
     }
     mostrarDados() {
-        console.log('--------------Dados do funcionario-------------')
-        console.log(`Nome do usuario___: ${this.nome}`)
-        console.log(`E-mail____________: ${this.email}`)
-        console.log(`Telefone__________: ${this.telefone}`)
-        console.log(`Cargo_____________: ${this.cargo}`)
-        console.log(`Data de nascimento: ${this.data_nascimento.toLocaleDateString('pt-BR')}`)
-        console.log('------------------------------------------------')
-    }
+        console.log('--------------Dados do funcionario-------------');
+        super.mostrarDados();
+        console.log(`Matricula_________: ${this.matricula}`);
+        console.log(`Cargo_____________: ${this.cargo}`);
+        console.log(`Hora_____________: ${this.data_nascimento.toLocaleTimeString()}`);
+        console.log('------------------------------------------------');
 
+    }
 }
 
-const funcionario1 = new Funcionario('Fulano', 'fulano@gmail.com', "1234567890", 'medico', new Date("2023-2-23"))
-console.log(funcionario1.mostrarDados())
-
+const funcionario1 = new Funcionario(['Rua do Senac', 'Numero 200', 'Bairro Senac', 'Cidade Senac'], '102547102', 'Dr. Zezinho', 'zezinho@email.com', '84995265878', 'Medico', new Date('1956-10-25T12:12:12'), '2514')
+funcionario1.mostrarDados()
+/* 
 
 class Paciente extends Pessoa {
     obs_alergias?: string;
     constructor(nome: string, cpf: string, telefone: string, email: string, endereco: string, obs_alergias?: string) {
-       
+
     }
 }
 
@@ -100,3 +98,4 @@ console.log(consulta1.mostrarDados())
 console.log(consulta2)
 
 
+    * / */
