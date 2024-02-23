@@ -17,18 +17,20 @@ class Pessoa {
         console.log(`Data de nascimento: ${this.data_nascimento.toLocaleDateString('pt-BR')}`)
         console.log(`CPF_______________: ${this.cpf}`)
         console.log(`Telefone__________: ${this.telefone}`)
+        console.log(`Endereço__________: ${this.endereco}`)
+
         if (this.genero) {
             console.log(`Genero____________: ${this.genero}`)
         }
     }
 }
 
-class Funcionario extends Pessoa {
+export class Funcionario extends Pessoa {
     matricula: string;
     cargo: string;
     // Método construtor da classe Funcionario
-    constructor(endereco: string[], cpf: string, nome: string, email: string, telefone: string, cargo: string, data_nascimento: Date, matricula: string) {
-        super(nome, email, telefone, data_nascimento, endereco, cpf);
+    constructor(endereco: string[], cpf: string, nome: string, email: string, telefone: string, cargo: string, data_nascimento: Date, matricula: string,genero?: string) {
+        super(nome,email, telefone, data_nascimento, endereco,cpf,genero);
         this.cargo = cargo;
         this.matricula = matricula;
     }
@@ -44,7 +46,7 @@ class Funcionario extends Pessoa {
 }
 
 const funcionario1 = new Funcionario(['Rua do Senac', 'Numero 200', 'Bairro Senac', 'Cidade Senac'], '102547102', 'Dr. Zezinho', 'zezinho@email.com', '84995265878', 'Medico', new Date('1956-10-25T12:12:12'), '2514')
-funcionario1.mostrarDados()
+//funcionario1.mostrarDados()
 /* 
 
 class Paciente extends Pessoa {

@@ -72,3 +72,4 @@ class Consulta {
 }
 const consulta1 = new Consulta('Mosquito', new Date("2024-09-23"), true, funcionario1, paciente1)
 paciente1.mostrarDados()
+
