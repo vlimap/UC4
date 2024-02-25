@@ -20,7 +20,7 @@ class Pessoa {
         console.log(`Endereço: ${this.rg}`)
     }
 }
-export class Funcionario extends Pessoa {   
+class Funcionario extends Pessoa {   
     // Método construtor da classe
     constructor(
         public matricula: string, 
@@ -52,8 +52,8 @@ class Paciente extends Pessoa {
     }
 }
 const paciente1 = new Paciente('Paciente', '12345', '12345', '123456789', 'fulano@email.com', ['Rua tal', '25', 'Bairro tal'], new Date("2023-3-25"))
-//paciente1.mostrarDados()
-//funcionario1.mostrarDados()
+paciente1.mostrarDados()
+funcionario1.mostrarDados()
 // Cadastro de Consultas:
 //• Dados específicos sobre cada consulta, incluindo informações importantes.
 class Consulta {
@@ -71,5 +71,5 @@ class Consulta {
     }
 }
 const consulta1 = new Consulta('Mosquito', new Date("2024-09-23"), true, funcionario1, paciente1)
-//paciente1.mostrarDados()
+paciente1.mostrarDados()
 
