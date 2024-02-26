@@ -1,27 +1,23 @@
 // Cadastro de Funcionários:
 // • Detalhes pessoais e profissionais dos colaboradores.
-class Pessoa {
+abstract class Pessoa {
     constructor(
         public nome: string,
-        public email: string,
+        protected email: string,
         public telefone: string,
         public data_nascimento: Date,
         public endereco: string[],
-        public cpf: string,
-        public genero?: string
+        protected cpf: string,
+        protected genero?: string
     ) {}
     mostrarDados() {
-        console.log(`Nome do usuario___: ${this.nome}`)
-        console.log(`E-mail____________: ${this.email}`)
-        console.log(`Telefone__________: ${this.telefone}`)
-        console.log(`Data de nascimento: ${this.data_nascimento.toLocaleDateString('pt-BR')}`)
-        console.log(`CPF_______________: ${this.cpf}`)
-        console.log(`Telefone__________: ${this.telefone}`)
-        console.log(`Endereço__________: ${this.endereco}`)
-
-        if (this.genero) {
-            console.log(`Genero____________: ${this.genero}`)
-        }
+        
+    }
+    getCpf(): string{
+        return this.cpf
+    }
+    setCpf(cpf: string): void{
+        this.cpf = cpf
     }
 }
 
@@ -45,9 +41,19 @@ export class Funcionario extends Pessoa {
     }
 }
 
-const funcionario1 = new Funcionario(['Rua do Senac', 'Numero 200', 'Bairro Senac', 'Cidade Senac'], '102547102', 'Dr. Zezinho', 'zezinho@email.com', '84995265878', 'Medico', new Date('1956-10-25T12:12:12'), '2514')
-//funcionario1.mostrarDados()
-/* 
+const funcionario1 = new Funcionario(
+    ['Rua do Senac', 'Número 200', 'Bairro Senac', 'Cidade Senac'],
+    '102547102',
+    'Dr. Zezinho',
+    'zezinho@email.com',
+    '84995265878',
+    'Médico',
+    new Date('1956-10-25T12:12:12'),
+    '2514'
+);
+
+//funcionario1.mostrarDados();
+
 
 class Paciente extends Pessoa {
     obs_alergias?: string;
@@ -91,5 +97,6 @@ const consulta2 = new Consulta('Japao', new Date('2024-09-23T12:12:12'), false, 
 console.log(consulta1.mostrarDados())
 console.log(consulta2)
 
+//consulta1.mostrarDados();
+//consulta2.mostrarDados();
 
-    * / */

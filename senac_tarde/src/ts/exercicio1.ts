@@ -1,26 +1,28 @@
 // Cadastro de Funcionários:
 // • Detalhes pessoais e profissionais dos colaboradores.
 // criando a classe Funcionario
-class Pessoa {
+abstract class Pessoa {
     constructor( 
         public nome: string, 
         public endereco: string[], 
-        public email: string, 
+        private email: string, 
         public telefone: string,  
         public data_nascimento: Date, 
         public rg: string
         ) {}
     mostrarDados() {
-        console.log('Dados do funcionario:')
-        console.log(`Nome completo do usuario: ${this.nome}`)
-        console.log(`E-mail: ${this.email}`)
-        console.log(`Telefone: ${this.telefone}`)
-        console.log(`Data de nascimento: ${this.data_nascimento.toLocaleDateString('pt-BR')}`)
-        console.log(`Endereço: ${this.endereco}`)
-        console.log(`Endereço: ${this.rg}`)
+    // vazio porque essa classe é uma classe modelo
+    }
+
+    getEmail(): string{
+        return this.email
+    }
+    setEmail(email: string): void{
+        this.email = email
     }
 }
-class Funcionario extends Pessoa {   
+
+export class Funcionario extends Pessoa {   
     // Método construtor da classe
     constructor(
         public matricula: string, 
@@ -35,13 +37,23 @@ class Funcionario extends Pessoa {
     }
     // Método especifico da classe
     mostrarDados() {
-        super.mostrarDados();
+        console.log('Dados do funcionario:')
+        console.log(`Cargo: ${this.cargo}`)
+        console.log(`Nome completo do usuario: ${this.nome}`)
+        console.log(`E-mail: ${super.getEmail()}`)
+        console.log(`Telefone: ${this.telefone}`)
+        console.log(`Data de nascimento: ${this.data_nascimento.toLocaleDateString('pt-BR')}`)
+        console.log(`Endereço: ${this.endereco}`)
+        console.log(`Endereço: ${this.rg}`)
         console.log(`Cargo: ${this.cargo}`);
         console.log(`Matricula: ${this.matricula}`);
     }
 }
 // instanciando a classe Funcionario e criando o objeto funcionario1
 const funcionario1 = new Funcionario('123456', ['Rua Senac', '13', 'Bairro Senac', 'Cidade Senac'], 'Colaborador', 'val@gmail.com', '12345678', 'professor', new Date('2024-2-25'), '12345')
+funcionario1.setEmail('valtemir@gmail.com')
+console.log(funcionario1.getEmail())
+
 class Paciente extends Pessoa {
     cpf: string;
     obs_alergias?: string;
@@ -52,8 +64,10 @@ class Paciente extends Pessoa {
     }
 }
 const paciente1 = new Paciente('Paciente', '12345', '12345', '123456789', 'fulano@email.com', ['Rua tal', '25', 'Bairro tal'], new Date("2023-3-25"))
-paciente1.mostrarDados()
-funcionario1.mostrarDados()
+
+
+//paciente1.mostrarDados()
+//funcionario1.mostrarDados()
 // Cadastro de Consultas:
 //• Dados específicos sobre cada consulta, incluindo informações importantes.
 class Consulta {
@@ -73,3 +87,6 @@ class Consulta {
 const consulta1 = new Consulta('Mosquito', new Date("2024-09-23"), true, funcionario1, paciente1)
 paciente1.mostrarDados()
 
+// Analisar as questões 1,2,3 e 4 buscando atributos que precisam
+// serem privados ou protected.
+// Buscar nos exercicios as classes que precisam de abstração.
