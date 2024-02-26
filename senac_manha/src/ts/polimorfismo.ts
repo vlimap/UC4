@@ -47,4 +47,8 @@ const dev1 = new Desenvolvedor(
 
 dev1.mostrarDados()
 
+// criar as classes:
+// frontend, backend e fullstack herdando de Desenvolvedor
+// cada classe criada deve ter ao menos um atributo exclusivo
+// da classe
 

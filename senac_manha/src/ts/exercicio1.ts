@@ -1,27 +1,24 @@
 // Cadastro de Funcionários:
 // • Detalhes pessoais e profissionais dos colaboradores.
-class Pessoa {
+abstract class Pessoa {
     constructor(
         public nome: string,
-        public email: string,
+        protected email: string,
         public telefone: string,
         public data_nascimento: Date,
         public endereco: string[],
-        public cpf: string,
-        public genero?: string
+        protected cpf: string,
+        protected genero?: string
     ) {}
     
     mostrarDados() {
-        console.log(`Nome do usuário: ${this.nome}`);
-        console.log(`E-mail: ${this.email}`);
-        console.log(`Telefone: ${this.telefone}`);
-        console.log(`Data de nascimento: ${this.data_nascimento.toLocaleDateString('pt-BR')}`);
-        console.log(`CPF: ${this.cpf}`);
-        console.log(`Endereço: ${this.endereco.join(', ')}`);
         
-        if (this.genero) {
-            console.log(`Gênero: ${this.genero}`);
-        }
+    }
+    getCpf(): string{
+        return this.cpf
+    }
+    setCpf(cpf: string): void{
+        this.cpf = cpf
     }
 }
 
@@ -67,7 +64,8 @@ const funcionario1 = new Funcionario(
     '2514'
 );
 
-funcionario1.mostrarDados();
+//funcionario1.mostrarDados();
+
 
 class Paciente extends Pessoa {
     obs_alergias?: string;
@@ -140,5 +138,6 @@ const consulta2 = new Consulta(
     paciente1
 );
 
-consulta1.mostrarDados();
-consulta2.mostrarDados();
+//consulta1.mostrarDados();
+//consulta2.mostrarDados();
+
