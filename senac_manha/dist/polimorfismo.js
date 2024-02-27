@@ -1,3 +1,4 @@
+"use strict";
 /* import { Funcionario } from './exercicio1'
 
 const funcionario2 = new Funcionario(['Rua Nordestao','12'],'321456987','Robervaldo','robervaldo123@email.com','45623456','Desenvolvedor',new Date('1957-11-23'),'0021')
@@ -8,16 +9,16 @@ class Desenvolvedor extends Funcionario{
     habilidades: string[];
     ano_experiencia: number;
     constructor(
-        ano_experiencia: number, 
+        ano_experiencia: number,
         habilidades: string[],
         endereco: string[],
-        cpf: string, 
-        nome: string, 
-        email:string, 
-        telefone: string, 
-        cargo: string, 
+        cpf: string,
+        nome: string,
+        email:string,
+        telefone: string,
+        cargo: string,
         data_nascimento:Date,
-        matricula: string, 
+        matricula: string,
         genero?:string
         ){
         super(endereco,cpf,nome,email,telefone,cargo, data_nascimento, matricula, genero)
@@ -52,4 +53,4 @@ dev1.mostrarDados()
 // cada classe criada deve ter ao menos um atributo exclusivo
 // da classe
 
- */
+ */ 
