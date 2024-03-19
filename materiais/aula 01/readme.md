@@ -48,7 +48,7 @@ Empresas como `Microsoft`, `Google`, `Airbnb` e `Slack` usam TypeScript em suas 
 10. Para testar, crie um arquivo com a extensão `.ts` dentro da pasta `src`. Exemplo:`teste.ts`
 
 ```typescript
-mundo string = 'Mundo'
+let mundo: string = 'Mundo'
 console.log(`Olá ${mundo}`)
 ```
 11. Para iniciar o compilador TypeScript em modo de observação, use:
