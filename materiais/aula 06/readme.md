@@ -98,3 +98,41 @@ Em TypeScript, os arrays são usados para armazenar múltiplos valores em uma ú
   frutas.sort();
   console.log(frutas); // ['Banana', 'Kiwi', 'Morango']
   ```
+
+- **indexOf():** Retorna o primeiro índice em que um determinado elemento pode ser encontrado no array, ou -1 se ele não estiver presente.
+  ```typescript
+  let indiceBanana: number = frutas.indexOf('Banana');
+  console.log(indiceBanana); // 0
+  ```
+
+- **lastIndexOf():** Retorna o último índice em que um determinado elemento pode ser encontrado no array, ou -1 se ele não estiver presente.
+  ```typescript
+  frutas.push('Banana');
+  let ultimoIndiceBanana: number = frutas.lastIndexOf('Banana');
+  console.log(ultimoIndiceBanana); // 3
+  ```
+
+- **concat():** Retorna um novo array que é a junção de dois ou mais arrays.
+  ```typescript
+  let maisFrutas: string[] = ['Abacaxi', 'Melão'];
+  let todasFrutas: string[] = frutas.concat(maisFrutas);
+  console.log(todasFrutas); // ['Banana', 'Kiwi', 'Morango', 'Banana', 'Abacaxi', 'Melão']
+  ```
+
+- **join():** Junta todos os elementos de um array em uma string.
+  ```typescript
+  let frutasString: string = frutas.join(', ');
+  console.log(frutasString); // 'Banana, Kiwi, Morango, Banana'
+  ```
+
+- **reverse():** Inverte a ordem dos elementos de um array.
+  ```typescript
+  frutas.reverse();
+  console.log(frutas); // ['Banana', 'Morango', 'Kiwi', 'Banana']
+  ```
+
+- **includes():** Determina se um array contém um determinado elemento.
+  ```typescript
+  let temLaranja: boolean = frutas.includes('Laranja');
+  console.log(temLaranja); // false
+  ```
