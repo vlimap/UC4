@@ -71,3 +71,89 @@ Para executar o projeto no vscode no terminal você deve isntalar:
 ```bash
 npm install -g ts-node
 ```
+# Entrada e Saída de Dados em TypeScript
+
+## Entrada de Dados
+
+Em TypeScript, a entrada de dados pode ser realizada de várias maneiras, dependendo do ambiente em que o código está sendo executado (navegador, Node.js, etc.). Vamos explorar algumas opções:
+
+### No Navegador
+
+Para obter entrada do usuário no navegador, você pode usar caixas de diálogo ou elementos de formulário HTML.
+
+- **Caixas de Diálogo:**
+  ```typescript
+  let nome = prompt("Digite seu nome:");
+  console.log(`Olá, ${nome}!`);
+  ```
+
+- **Elementos de Formulário:**
+  Você pode obter o valor de um campo de entrada usando o DOM (Document Object Model).
+  ```html
+  <input type="text" id="idadeInput">
+  <button onclick="mostrarIdade()">Mostrar Idade</button>
+  <script>
+      function mostrarIdade() {
+          let idade = (document.getElementById("idadeInput") as HTMLInputElement).value;
+          console.log(`Sua idade é ${idade}`);
+      }
+  </script>
+  ```
+
+### No Node.js
+
+Para entrada de dados no Node.js, você pode usar o módulo `readline`.
+
+- **Usando `readline`:**
+  ```typescript
+  import * as readline from 'readline';
+
+  let rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+  });
+
+  rl.question('Qual é o seu nome? ', (nome) => {
+      console.log(`Olá, ${nome}!`);
+      rl.close();
+  });
+  ```
+
+## Saída de Dados
+
+A saída de dados em TypeScript é geralmente realizada usando o método `console.log()` para imprimir mensagens no console.
+
+- **Imprimindo no Console:**
+  ```typescript
+  console.log("Olá, Mundo!");
+  ```
+
+- **Formatando Saídas:**
+  Você pode usar template strings para formatar a saída.
+  ```typescript
+  let nome = "Alice";
+  let idade = 30;
+  console.log(`Nome: ${nome}, Idade: ${idade}`);
+  ```
+
+## Exemplo Completo
+
+Aqui está um exemplo que combina entrada e saída de dados no Node.js:
+
+```typescript
+import * as readline from 'readline';
+
+let rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Digite seu nome: ', (nome) => {
+    rl.question('Digite sua idade: ', (idade) => {
+        console.log(`Nome: ${nome}, Idade: ${idade}`);
+        rl.close();
+    });
+});
+```
+
+Este exemplo pede ao usuário para digitar seu nome e idade e, em seguida, imprime essas informações no console.
